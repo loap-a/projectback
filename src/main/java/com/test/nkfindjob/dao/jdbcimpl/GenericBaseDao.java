@@ -27,6 +27,10 @@ public class GenericBaseDao {
 
     //2-1 获取链接的方法,获取|赋值conn属性
     public void getConnection() throws SQLException {
+        url=DBUtil.url;
+        user=DBUtil.user;
+        password=DBUtil.password;
+
         conn = DriverManager.getConnection(url,user,password);
     }
 

@@ -16,7 +16,7 @@ public class importAllData {
 //        Company company=new Company("123","555","666","333");
 //        if(companyDao.findById("123")==null) companyDao.insert(company);
         try {
-            BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("F:\\WorkSpace\\IDEA-workspace\\projectback\\job.csv"),"GB18030"));
+            BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream("Boss.csv"),"GB18030"));//liepin 2120
             String line="";
             while((line=br.readLine())!=null){
                 System.out.println(line);
@@ -33,13 +33,16 @@ public class importAllData {
                 Job job=new Job(title,comName,city,wages,qualification,treatment);
                 Company company=new Company(comName,industry,scale,capital);
                 jobDao.insert(job);
-                if(companyDao.findById(comName)==null) companyDao.insert(company);
+                if(companyDao.findById(comName)==null)companyDao.insert(company);
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        catch(Exception e) {
+            System.out.println("就是玩");
         }
     }
 

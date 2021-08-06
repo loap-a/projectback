@@ -85,7 +85,11 @@ public class CompanyDaoImpl extends GenericBaseDao implements CompanyDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
+        try {
+            this.closeAll();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return res;
     }
 
